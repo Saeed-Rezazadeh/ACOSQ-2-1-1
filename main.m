@@ -86,7 +86,7 @@ for delta = [0 5 10]
             for y_2 = 1 : 2
                 y_1_2 = (y_1 - 1) * 2 + y_2 ;
                 
-                % Based on (4.2) compute the source conditional pdf given the received
+                % Based on (4.8) compute the source conditional pdf given the received
                 % sequence y_1y_2 where y_1y_2 is the channel output corresponding to
                 % the transmitted sequence in the first step.
                 [f_u_given_y_1_y_2] = generate_pdf_step_2(y_1 , y_2 , T , Pr , f , delta_u ) ;
@@ -139,7 +139,7 @@ for delta = [0 5 10]
                     y_1_2_3 = (y_1 - 1) * 4 + (y_2 - 1) * 2 + y_3 ;
                     
                     [f_u_given_y_1_y_2] = generate_pdf_step_2(y_1 , y_2 , T , Pr , f , delta_u ) ;
-                    % According to (4.4) compute the conditional pdf given the received sequence
+                    % According to (4.8) compute the conditional pdf given the received sequence
                     % y_1y_2y_3 where y_3 is the corresponding channel output for
                     % the sequence transmitted in the second step
                     [f_u_given_y_1_y_2_y_3] = generate_pdf_step_3(Pr_z , f_u_given_y_1_y_2 , T , y_1 , y_2 , y_3 , delta_u) ;
@@ -159,7 +159,7 @@ for delta = [0 5 10]
                         end
                         % The last step of the ACOSQ described in Section 4.1 and
                         % Algorithm 4. In this step a 1-bit COSQ is designed for the conditional source pdf f_u_given_y_1_y_2_y_3
-                        % as computed in line 147.
+                        % as computed in line 145.
                         [SDR_4(k) , D_4(y_1_2_3) , hold_T , codebook] = COSQ_4(f_u_given_y_1_y_2_y_3 , y_1 , y_2 , y_3 , Pr_z , T(: , 1 : 6) , codebook , delta_u ) ;
                         
                         
